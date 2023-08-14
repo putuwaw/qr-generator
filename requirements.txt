@@ -5,7 +5,7 @@ click==8.1.6
 dnspython==2.4.1
 email-validator==2.0.0.post2
 exceptiongroup==1.1.2
-fastapi==0.100.1
+fastapi==0.101.1
 h11==0.14.0
 httpcore==0.17.3
 httptools==0.6.0
