@@ -40,6 +40,48 @@ def get_html_form():
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label for="formate" class="form-label">Format</label>
+                        <select class="form-select" name="formate" id="formate" onchange="togglePngOptions()">
+                            <option selected value="svg">SVG</option>
+                            <option value="png">PNG</option>
+                        </select>
+                    </div>
+                    <div id="png-options" style="display: none;">
+                        <div class="mb-3">
+                            <label for="version" class="form-label">Version</label>
+                            <select class="form-select" name="version" id="version">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="box_size" class="form-label">Box Size: <span id="box_size_value">10</span></label>
+                            <input type="range" class="form-range" id="box_size" name="box_size" min="1" max="100" value="10" oninput="updateBoxSizeValue(this.value)">
+                            <div class="d-flex justify-content-between">
+                                <span>1</span>
+                                <span>50</span>
+                                <span>100</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="border" class="form-label">Border Size: <span id="border_value">4</span></label>
+                            <input type="range" class="form-range" id="border" name="border" min="0" max="50" value="4" oninput="updateBorderSizeValue(this.value)">
+                            <div class="d-flex justify-content-between">
+                                <span>1</span>
+                                <span>4</span>
+                                <span>50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="bg-color" class="form-label">Background Color</label>
                         <input 
                             class="form-control" 
@@ -67,6 +109,23 @@ def get_html_form():
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"
             ></script>
+            <script>
+                function togglePngOptions() {
+                    var formatSelect = document.getElementById("formate");
+                    var pngOptions = document.getElementById("png-options");
+                    if (formatSelect.value === "png") {
+                        pngOptions.style.display = "block";
+                    } else {
+                        pngOptions.style.display = "none";
+                    }
+                }
+                function updateBoxSizeValue(value) {
+                    document.getElementById("box_size_value").innerText = value;
+                }
+                function updateBorderSizeValue(value) {
+                    document.getElementById("border_value").innerText = value;
+                }
+            </script>
         </body>
         </html>
     """
